@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 @Table(
-        name="Product_Details",
+        name="Product_Detail",
         uniqueConstraints = {
                 @UniqueConstraint(name = "sku_unique", columnNames = {"sku"})
         },

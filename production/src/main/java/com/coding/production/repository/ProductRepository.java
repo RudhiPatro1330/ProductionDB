@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import org.springframework.data.domain.Pageable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -30,4 +31,7 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
 
     @Query("select e from Product e where e.title=:title and e.price=:price")
     Optional<Product> findByTitleAndPrice(String title, BigDecimal price);
+
+
+    List<Product> findByTitleContainingIgnoreCase(String title, Pageable pageable);
 }
